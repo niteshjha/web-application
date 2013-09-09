@@ -220,11 +220,6 @@ class Quiz < ActiveRecord::Base
     return true
   end
 
-  # Returns the list of micro-topics touched upon in this Quiz - as an array of indices
-  def micros
-    self.questions.map{|q| q.topic_id}.uniq
-  end
-
   def pending_questions
     a = GradedResponse.in_quiz(self.id).ungraded
   end
